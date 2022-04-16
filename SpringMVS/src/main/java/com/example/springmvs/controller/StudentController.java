@@ -19,26 +19,23 @@ public class StudentController {
     }
 
     @GetMapping("/all")
-    public List<Student> findAll() {
-        return studentService.findAll();
+    public ResponseEntity<List<Student>> findAll() {
+        return ResponseEntity.ok(studentService.findAll());
     }
 
     @GetMapping("/{id}")
-    public Student findById(@PathVariable Long id) {
-        return studentService.findById(id);
+    public ResponseEntity<Student> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(studentService.findById(id));
     }
 
     @PostMapping("/save")
-    public Student updateStudent(Student student) {
-        return studentService.saveStudent(student);
+    public ResponseEntity<Student> save(@RequestBody Student student) {
+        return ResponseEntity.ok(studentService.saveStudent(student));
     }
 
-    @DeleteMapping("/id")
-    public ResponseEntity deleteById(@PathVariable Long id) {
-        try {
-            return ResponseEntity.ok(studentService.deleteById(id));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Don't delete student with id = " + id);
-        }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        studentService.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 }
