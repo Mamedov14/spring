@@ -7,12 +7,12 @@ import java.util.List;
 public interface StudentDao {
     List<Student> findAll();
 
-    Student findById(Integer id);
+    Student findById(Long id);
 
     void update(Student student);
 
     void save(Student student);
 
-    void delete(Integer id);
+    void delete(Long id);
 
 }

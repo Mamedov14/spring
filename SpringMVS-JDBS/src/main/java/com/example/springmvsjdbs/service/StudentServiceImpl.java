@@ -23,7 +23,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student findById(Integer id) {
+    public Student findById(Long id) {
         return studentDao.findById(id);
     }
 
@@ -38,7 +38,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         studentDao.delete(id);
     }
 }

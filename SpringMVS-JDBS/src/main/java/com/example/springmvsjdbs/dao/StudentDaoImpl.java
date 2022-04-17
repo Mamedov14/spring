@@ -27,7 +27,7 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public Student findById(Integer id) {
+    public Student findById(Long id) {
         // language=sql
         String sql = "SELECT * FROM students WHERE id = ?";
         return jdbcTemplate.queryForObject(sql, new UserMapper(), id);
@@ -36,8 +36,8 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public void update(Student student) {
         // language=sql
-        String sql = "UPDATE students SET name=?, age=?, rating=?";
-        jdbcTemplate.update(sql, student.getName(), student.getAge(), student.getRating());
+        String sql = "UPDATE students SET id=?, name=?, age=?, rating=?";
+        jdbcTemplate.update(sql, student.getId(), student.getName(), student.getAge(), student.getRating());
     }
 
     @Override
@@ -48,7 +48,7 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         // language=sql
         String sql = "DELETE FROM students WHERE id=?";
         jdbcTemplate.update(sql, id);

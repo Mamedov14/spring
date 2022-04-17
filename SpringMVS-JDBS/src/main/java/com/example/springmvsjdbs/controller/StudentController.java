@@ -18,20 +18,19 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-
     @GetMapping("/")
     public String getHello() {
-        return "hello";
+        return "helloStudent";
     }
 
     @GetMapping("/students")
     public String findAllStudents(Model model) {
         model.addAttribute("students", studentService.findAll());
-        return "studentsList";
+        return "listStudents";
     }
 
     @GetMapping("student/{id}")
-    public String findById(@PathVariable Integer id, Model model) {
+    public String findById(@PathVariable Long id, Model model) {
         model.addAttribute("student", studentService.findById(id));
         return "showStudent";
     }
@@ -44,6 +43,24 @@ public class StudentController {
     @PostMapping("/addStudent")
     public String addStudent(@ModelAttribute("student") Student student) {
         studentService.save(student);
-        return "redirect:students";
+        return "redirect:/students";
+    }
+
+    @GetMapping("/update{id}")
+    public String updateStudent(@PathVariable Long id, Model model) {
+        model.addAttribute("student", studentService.findById(id));
+        return "updateStudent";
+    }
+
+    @PostMapping("/update")
+    public String updateStudent(@ModelAttribute("student") Student student) {
+        studentService.update(student);
+        return "redirect:/student/" + student.getId();
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteStudent(@PathVariable Long id) {
+        studentService.delete(id);
+        return "redirect:/students";
     }
 }

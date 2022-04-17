@@ -14,6 +14,7 @@
         <th>Name</th>
         <th>Age</th>
         <th>Rating</th>
+        <th>Open</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -22,8 +23,14 @@
         <td th:text="${student.name}"></td>
         <td th:text="${student.age}">></td>
         <td th:text="${student.rating}"></td>
-        <td><a th:href="@{studentUpdate/{id}(id=${student.id})}">Edit</a></td>
-        <td><a th:href="@{studentDelete/{id}(id=${student.id})}">Delete</a></td>
+        <td><a th:href="@{student/{id}(id=${student.id})}">Open</a></td>
+        <!--        <td><a th:href="@{updateStudent/{id}(id=${student.id})}">Edit</a></td>-->
+        <!--        <td><a th:href="@{deleteStudent/{id}(id=${student.id})}">Delete</a></td>-->
+        <!--        <td><a href="/updateStudent/${id}}">Edit</a></td>-->
+        <!--        <td><a href="/delete/${student.id}">Delete</a></td>-->
+
+        <td><a th:href="@{updateStudent/{id}(id=${student.id})}">Edit</a></td>
+        <td><a th:href="@{delete/{id}(id=${student.id})}">Delete</a></td>
     </tr>
 </table>
 <h4><a href="/">Back</a></h4>
