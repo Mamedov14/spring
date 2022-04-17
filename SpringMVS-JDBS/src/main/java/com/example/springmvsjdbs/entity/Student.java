@@ -1,8 +1,6 @@
 package com.example.springmvsjdbs.entity;
 
 
-import org.springframework.data.relational.core.sql.In;
-
 public class Student {
 
     private Long id;
@@ -15,6 +13,12 @@ public class Student {
 
     public Student(Long id, String name, Integer age, String rating) {
         this.id = id;
+        this.name = name;
+        this.age = age;
+        this.rating = rating;
+    }
+
+    public Student(String name, Integer age, String rating) {
         this.name = name;
         this.age = age;
         this.rating = rating;
