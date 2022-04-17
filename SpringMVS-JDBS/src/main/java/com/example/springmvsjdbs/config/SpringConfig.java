@@ -1,5 +1,7 @@
 package com.example.springmvsjdbs.config;
 
+import com.example.springmvsjdbs.dao.StudentDao;
+import com.example.springmvsjdbs.dao.StudentDaoImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -9,7 +11,6 @@ import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
-
     @Bean
     public JdbcTemplate getJdbsTemplate() {
         return new JdbcTemplate(getDataSource());
@@ -23,5 +24,10 @@ public class SpringConfig {
         dataSource.setPassword("root");
         dataSource.setDriverClassName("org.postgresql.Driver");
         return dataSource;
+    }
+
+    @Bean
+    public StudentDao studentDao() {
+        return new StudentDaoImpl(getJdbsTemplate());
     }
 }
