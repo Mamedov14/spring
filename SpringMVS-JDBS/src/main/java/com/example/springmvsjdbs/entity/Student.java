@@ -6,19 +6,19 @@ public class Student {
     private Long id;
     private String name;
     private Integer age;
-    private String rating;
+    private Integer rating;
 
     public Student() {
     }
 
-    public Student(Long id, String name, Integer age, String rating) {
+    public Student(Long id, String name, Integer age, Integer rating) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.rating = rating;
     }
 
-    public Student(String name, Integer age, String rating) {
+    public Student(String name, Integer age, Integer rating) {
         this.name = name;
         this.age = age;
         this.rating = rating;
@@ -48,11 +48,11 @@ public class Student {
         this.age = age;
     }
 
-    public String getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 }
