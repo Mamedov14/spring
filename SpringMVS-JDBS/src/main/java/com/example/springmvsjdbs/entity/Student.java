@@ -1,20 +1,22 @@
 package com.example.springmvsjdbs.entity;
 
 
+import org.springframework.data.relational.core.sql.In;
+
 public class Student {
 
     private Long id;
     private String name;
-    private String age;
+    private Integer age;
     private String rating;
 
     public Student() {
     }
 
-    public Student(Long id, String name, String group, String rating) {
+    public Student(Long id, String name, Integer age, String rating) {
         this.id = id;
         this.name = name;
-        this.group = group;
+        this.age = age;
         this.rating = rating;
     }
 
@@ -34,12 +36,12 @@ public class Student {
         this.name = name;
     }
 
-    public String getGroup() {
-        return group;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getRating() {
