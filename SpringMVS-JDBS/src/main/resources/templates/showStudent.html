@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Show Student</title>
+</head>
+<body>
+<h1>Info Student</h1>
+<table th:each="student : ${student}">
+    <tr>
+        <td>ID</td>
+        <td th:text="${student.id}"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${student.name}"></td>
+    </tr>
+    <tr>
+        <td>Age</td>
+        <td th:text="${student.age}"></td>
+    </tr>
+    <tr>
+        <td>Rating</td>
+        <td th:text="${student.rating}"></td>
+    </tr>
+</table>
+<br>
+<a href="/students">Back</a>
+</body>
+</html>

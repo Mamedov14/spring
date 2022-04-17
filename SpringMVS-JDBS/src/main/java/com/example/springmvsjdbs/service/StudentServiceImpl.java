@@ -23,7 +23,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student findBuId(Integer id) {
+    public Student findById(Integer id) {
         return studentDao.findById(id);
     }
 

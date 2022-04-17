@@ -7,7 +7,7 @@ import java.util.List;
 public interface StudentService {
     List<Student> findAll();
 
-    Student findBuId(Integer id);
+    Student findById(Integer id);
 
     void update(Student student);
 
