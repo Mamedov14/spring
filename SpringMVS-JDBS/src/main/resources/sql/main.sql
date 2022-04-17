@@ -14,6 +14,4 @@ FROM students;
 INSERT INTO students(name, age, rating)
 VALUES ('Vagif', 19, 10);
 
-DELETE
-FROM students
-WHERE id = 4;
+DELETE FROM students WHERE id = 4;
