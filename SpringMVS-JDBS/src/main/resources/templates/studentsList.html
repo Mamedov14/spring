@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>Students</h3>
-<table style="accent-color: black">
+<table>
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -20,8 +20,8 @@
         <td th:text="${student.name}"></td>
         <td th:text="${student.age}">></td>
         <td th:text="${student.rating}"></td>
-        <!--        <td><a th:href="@{user-update/{id}(id=${user.id})}">Edit</a></td>-->
-        <!--        <td><a th:href="@{user-delete/{id}(id=${user.id})}">Delete</a></td>-->
+        <td><a th:href="@{studentUpdate/{id}(id=${student.id})}">Edit</a></td>
+        <td><a th:href="@{studentDelete/{id}(id=${student.id})}">Delete</a></td>
     </tr>
 </table>
 <h4><a href="/">Back</a></h4>
