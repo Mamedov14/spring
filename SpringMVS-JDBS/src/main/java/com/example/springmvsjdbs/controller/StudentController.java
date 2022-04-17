@@ -46,13 +46,13 @@ public class StudentController {
         return "redirect:/students";
     }
 
-    @GetMapping("/update{id}")
+    @GetMapping("/update/{id}")
     public String updateStudent(@PathVariable Long id, Model model) {
         model.addAttribute("student", studentService.findById(id));
         return "updateStudent";
     }
 
-    @PostMapping("/update")
+    @PostMapping("/updateStudent")
     public String updateStudent(@ModelAttribute("student") Student student) {
         studentService.update(student);
         return "redirect:/student/" + student.getId();
