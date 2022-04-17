@@ -14,5 +14,4 @@ public interface StudentDao {
     void save(Student student);
 
     void delete(Long id);
-
 }

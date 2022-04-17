@@ -10,14 +10,12 @@ import java.util.List;
 
 @Repository
 public class StudentDaoImpl implements StudentDao {
-
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
     public StudentDaoImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
 
     @Override
     public List<Student> findAll() {
@@ -36,8 +34,8 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public void update(Student student) {
         // language=sql
-        String sql = "UPDATE students SET name=?, age=?, rating=?";
-        jdbcTemplate.update(sql, student.getName(), student.getAge(), student.getRating());
+        String sql = "UPDATE students SET name=?, age=?, rating=? WHERE id=?";
+        jdbcTemplate.update(sql, student.getName(), student.getAge(), student.getRating(), student.getId());
     }
 
     @Override
