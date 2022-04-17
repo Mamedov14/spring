@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>StudentsList</title>
+</head>
+<body>
+<h3>Students</h3>
+<table style="accent-color: black">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Rating</th>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.age}">></td>
+        <td th:text="${student.rating}"></td>
+        <!--        <td><a th:href="@{user-update/{id}(id=${user.id})}">Edit</a></td>-->
+        <!--        <td><a th:href="@{user-delete/{id}(id=${user.id})}">Delete</a></td>-->
+    </tr>
+</table>
+<h4><a href="/">Back</a></h4>
+</body>
+</html>

@@ -1,0 +1,15 @@
+
+TABLE {
+    width: 300px;
+    border-collapse: collapse;
+}
+
+TD, TH {
+    padding: 3px;
+    border: 1px solid black;
+}
+
+TH {
+    background: rgba(219, 13, 13, 0.93);
+}
+
