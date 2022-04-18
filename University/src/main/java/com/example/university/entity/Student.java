@@ -2,15 +2,12 @@ package com.example.university.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity
 @Data
+@Entity
 public class Student {
 
     @Id
@@ -28,9 +25,6 @@ public class Student {
 
     @Column
     private Integer age;
-
-    @Column
-    private String group;
 
     @Column
     private Integer course;
