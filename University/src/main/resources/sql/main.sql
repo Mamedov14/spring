@@ -5,21 +5,25 @@ SELECT *
 FROM teacher;
 
 TRUNCATE student;
-
+TRUNCATE teacher;
 
 INSERT INTO teacher(fio, subject)
-VALUES ('Turbin', 'Algebra'), ('Zaligaeva', 'Matan');
+VALUES ('Turbin', 'Algebra'),
+       ('Zaligaeva', 'Matan'),
+       ('Aleksandrov', 'Fiz-ra');
 
 INSERT INTO student(age, course, email, last_name, name, teacher_id)
-VALUES (19, 2, 'vagif_m@bk.ru', 'Mamedov', 'Vagif', 1),
-       (20, 3, 'ruslan_m@bk.ru', 'Mamedov', 'Ruslan', 1);
+VALUES (19, 2, 'vagif_m@bk.ru', 'Mamedov', 'Vagif', 6),
+       (20, 3, 'ruslan_m@bk.ru', 'Mamedov', 'Ruslan', 7);
 
 
 INSERT INTO student(age, course, email, last_name, name, teacher_id)
-VALUES (19, 2, 'vagif_m@bk.ru', 'Mamedov', 'Vagif', 2),
-       (20, 3, 'ruslan_m@bk.ru', 'Mamedov', 'Ruslan', 2);
+VALUES (19, 1, 'vova_b@bk.ru', 'Vrazhnikov', 'Vova', 8);
 
-INSERT INTO student(age, course, email, last_name, name, teacher_id)
-VALUES (19, 2, 'vagif_m@bk.ru', 'Mamedov', 'Vagif', 1);
+SELECT name, age, fio, subject
+FROM student
+         INNER JOIN teacher on teacher.id = student.teacher_id;
 
-SELECT * FROM student LEFT JOIN teacher t on t.id = student.teacher_id;
+DELETE
+FROM teacher
+WHERE id = 1;
