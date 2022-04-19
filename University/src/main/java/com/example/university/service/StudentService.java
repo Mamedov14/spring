@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StudentService implements BaseService<Student> {
@@ -26,5 +25,13 @@ public class StudentService implements BaseService<Student> {
     @Override
     public Student findById(Long id) {
         return studentRepository.findById(id).get();
+    }
+
+    @Override
+    public Student save(Student student) {
+        Student saveStudent = new Student(student.getAge(),
+                student.getCourse(), student.getEmail(),
+                student.getLastName(), student.getName());
+        return studentRepository.save(saveStudent);
     }
 }

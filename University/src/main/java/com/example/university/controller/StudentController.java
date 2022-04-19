@@ -3,10 +3,9 @@ package com.example.university.controller;
 import com.example.university.entity.Student;
 import com.example.university.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -24,4 +23,13 @@ public class StudentController {
         return studentService.findAll();
     }
 
+    @GetMapping("/student/{id}")
+    public Student findById(@PathVariable Long id) {
+        return studentService.findById(id);
+    }
+
+    @PostMapping("/student/save")
+    public Student save(@RequestBody Student student) {
+        return studentService.save(student);
+    }
 }

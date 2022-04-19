@@ -24,7 +24,7 @@ public class Teacher {
     @Column
     private String subject;
 
-    @OneToMany(mappedBy = "teacher")
-    private List<Student> students;
+//    @OneToMany(mappedBy = "teacher")
+//    private List<Student> students;
 
 }

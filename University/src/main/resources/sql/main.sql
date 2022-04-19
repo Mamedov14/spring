@@ -13,9 +13,13 @@ VALUES ('Turbin', 'Algebra'),
        ('Aleksandrov', 'Fiz-ra');
 
 INSERT INTO student(age, course, email, last_name, name, teacher_id)
-VALUES (19, 2, 'vagif_m@bk.ru', 'Mamedov', 'Vagif', 6),
-       (20, 3, 'ruslan_m@bk.ru', 'Mamedov', 'Ruslan', 7);
+VALUES (19, 2, 'vagif_m@bk.ru', 'Mamedov', 'Vagif', 1),
+       (20, 3, 'ruslan_m@bk.ru', 'Mamedov', 'Ruslan', 2);
 
+
+INSERT INTO student(age, course, email, last_name, name)
+VALUES (19, 2, 'vagif_m@bk.ru', 'Mamedov', 'Vagif'),
+       (20, 3, 'ruslan_m@bk.ru', 'Mamedov', 'Ruslan');
 
 INSERT INTO student(age, course, email, last_name, name, teacher_id)
 VALUES (19, 1, 'vova_b@bk.ru', 'Vrazhnikov', 'Vova', 8);
