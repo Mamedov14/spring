@@ -14,11 +14,16 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     Optional<Student> findById(Long id);
 
     @Modifying
-    @Query(value = "INSERT INTO student(age, course, email, last_name, name) " +
+    @Query(value = "INSERT INTO student(name, last_name, email, course, age) " +
             "VALUES(?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
-    void save(Integer age, Integer course, String email, String lastName, String name);
+    void save(String name, String lastName, String email, Integer course, Integer age);
 
     @Modifying
     @Query(value = "DELETE FROM student WHERE id = ?1", nativeQuery = true)
-    void delete(Long id);
+    void deleteById(Long id);
+
+    @Modifying
+    @Query(value = "UPDATE student SET name=?2, last_name=?3, email=?4, course=?5, age=?6 " +
+            "WHERE id=?1", nativeQuery = true)
+    void update(Long id, String name, String lastName, String email, Integer course, Integer age);
 }

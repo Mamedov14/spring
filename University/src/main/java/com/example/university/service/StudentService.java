@@ -29,15 +29,24 @@ public class StudentService implements BaseService<Student> {
 
     @Override
     public Student save(Student student) {
-        Student saveStudent = new Student(student.getAge(),
-                student.getCourse(), student.getEmail(),
-                student.getLastName(), student.getName());
+        Student saveStudent = new Student(student.getName(),
+                student.getLastName(), student.getEmail(),
+                student.getCourse(), student.getAge());
         return studentRepository.save(saveStudent);
     }
 
     @Override
     public void delete(Long id) {
-        studentRepository.delete(id);
+        studentRepository.deleteById(id);
     }
 
+    @Override
+    public void update(Student student) {
+        Student updateStudent = new Student(student.getId(), student.getName(),
+                student.getLastName(), student.getEmail(), student.getCourse(),
+                student.getAge());
+        studentRepository.update(student.getId(), student.getName(),
+                student.getLastName(), student.getEmail(), student.getCourse(),
+                student.getAge());
+    }
 }

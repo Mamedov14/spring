@@ -33,7 +33,7 @@ public class Student {
     @Column
     private Integer course;
 
-    public Student(Integer age, Integer course, String lastName, String name, String email) {
+    public Student(String name, String lastName, String email, Integer course, Integer age) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -41,7 +41,7 @@ public class Student {
         this.course = course;
     }
 
-    //    @ManyToOne
+//    @ManyToOne
 //    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
 //    private Teacher teacher;
 }
