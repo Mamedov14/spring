@@ -45,6 +45,7 @@ public class StudentService implements BaseService<Student> {
         Student updateStudent = new Student(student.getId(), student.getName(),
                 student.getLastName(), student.getEmail(), student.getCourse(),
                 student.getAge());
+
         studentRepository.update(student.getId(), student.getName(),
                 student.getLastName(), student.getEmail(), student.getCourse(),
                 student.getAge());
