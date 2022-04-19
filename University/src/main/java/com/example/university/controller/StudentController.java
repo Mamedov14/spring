@@ -28,8 +28,8 @@ public class StudentController {
     }
 
     @PostMapping("/student/save")
-    public Student save(@RequestBody Student student) {
-        return studentService.save(student);
+    public void saveStudent(@RequestBody Student student) {
+        studentService.saveStudent(student);
     }
 
     @DeleteMapping("/student/delete/{id}")

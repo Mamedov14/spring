@@ -15,7 +15,7 @@ public interface BaseService<T> {
 
     T findById(Long id);
 
-    T save(T t);
+    void saveStudent(T t);
 
     void delete(Long id);
 

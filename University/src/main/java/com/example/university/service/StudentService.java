@@ -27,12 +27,10 @@ public class StudentService implements BaseService<Student> {
         return studentRepository.findById(id).get();
     }
 
-    @Override
-    public Student save(Student student) {
-        Student saveStudent = new Student(student.getName(),
+    public void saveStudent(Student student) {
+        studentRepository.saveStudent(student.getName(),
                 student.getLastName(), student.getEmail(),
                 student.getCourse(), student.getAge());
-        return studentRepository.save(saveStudent);
     }
 
     @Override
@@ -42,10 +40,6 @@ public class StudentService implements BaseService<Student> {
 
     @Override
     public void update(Student student) {
-        Student updateStudent = new Student(student.getId(), student.getName(),
-                student.getLastName(), student.getEmail(), student.getCourse(),
-                student.getAge());
-
         studentRepository.update(student.getId(), student.getName(),
                 student.getLastName(), student.getEmail(), student.getCourse(),
                 student.getAge());

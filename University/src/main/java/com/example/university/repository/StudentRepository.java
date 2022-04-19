@@ -18,7 +18,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     @Transactional
     @Query(value = "INSERT INTO student(name, last_name, email, course, age) " +
             "VALUES(?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
-    void save(String name, String lastName, String email, Integer course, Integer age);
+    void saveStudent(String name, String lastName, String email, Integer course, Integer age);
 
     @Modifying
     @Query(value = "DELETE FROM student WHERE id = ?1", nativeQuery = true)
