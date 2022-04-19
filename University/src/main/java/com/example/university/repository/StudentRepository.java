@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
     @Query(value = "SELECT * FROM student WHERE id = ?1", nativeQuery = true)
-    Optional<Student> findById(Long id);
+    Optional<Student> findByIdStudent(Long id);
 
     @Modifying
     @Transactional
@@ -22,11 +22,11 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     @Modifying
     @Query(value = "DELETE FROM student WHERE id = ?1", nativeQuery = true)
-    void deleteById(Long id);
+    void deleteByIdStudent(Long id);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE student SET name=?2, last_name=?3, email=?4, course=?5, age=?6 " +
             "WHERE id=?1", nativeQuery = true)
-    void update(Long id, String name, String lastName, String email, Integer course, Integer age);
+    void updateStudent(Long id, String name, String lastName, String email, Integer course, Integer age);
 }

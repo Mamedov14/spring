@@ -18,27 +18,27 @@ public class StudentController {
     }
 
     @GetMapping("/students")
-    public List<Student> findAll() {
+    public List<Student> findAllStudent() {
         return studentService.findAll();
     }
 
     @GetMapping("/student/{id}")
-    public Student findById(@PathVariable Long id) {
+    public Student findByIdStudent(@PathVariable Long id) {
         return studentService.findById(id);
     }
 
     @PostMapping("/student/save")
     public void saveStudent(@RequestBody Student student) {
-        studentService.saveStudent(student);
+        studentService.save(student);
     }
 
     @DeleteMapping("/student/delete/{id}")
-    public void delete(@PathVariable Long id) {
+    public void deleteStudent(@PathVariable Long id) {
         studentService.delete(id);
     }
 
     @PutMapping("/student/update")
-    public void update(@RequestBody Student student) {
+    public void updateStudent(@RequestBody Student student) {
         studentService.update(student);
     }
 }

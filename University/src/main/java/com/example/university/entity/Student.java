@@ -33,15 +33,7 @@ public class Student {
     @Column
     private Integer course;
 
-    public Student(String name, String lastName, String email, Integer course, Integer age) {
-        this.name = name;
-        this.lastName = lastName;
-        this.email = email;
-        this.age = age;
-        this.course = course;
-    }
-
-//    @ManyToOne
+    //    @ManyToOne
 //    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
 //    private Teacher teacher;
 }

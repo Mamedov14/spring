@@ -24,10 +24,10 @@ public class StudentService implements BaseService<Student> {
 
     @Override
     public Student findById(Long id) {
-        return studentRepository.findById(id).get();
+        return studentRepository.findByIdStudent(id).get();
     }
 
-    public void saveStudent(Student student) {
+    public void save(Student student) {
         studentRepository.saveStudent(student.getName(),
                 student.getLastName(), student.getEmail(),
                 student.getCourse(), student.getAge());
@@ -35,12 +35,12 @@ public class StudentService implements BaseService<Student> {
 
     @Override
     public void delete(Long id) {
-        studentRepository.deleteById(id);
+        studentRepository.deleteByIdStudent(id);
     }
 
     @Override
     public void update(Student student) {
-        studentRepository.update(student.getId(), student.getName(),
+        studentRepository.updateStudent(student.getId(), student.getName(),
                 student.getLastName(), student.getEmail(), student.getCourse(),
                 student.getAge());
     }
