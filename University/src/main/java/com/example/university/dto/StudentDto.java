@@ -12,7 +12,7 @@ public class StudentDto {
     private Integer age;
     private Integer course;
 
-    public static Student toDto(StudentDto studentDto) {
+    public static Student StudentToDto(StudentDto studentDto) {
         Student student = new Student();
         student.setId(studentDto.getId());
         student.setName(studentDto.getName());

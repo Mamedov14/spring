@@ -3,9 +3,10 @@ package com.example.university.controller;
 import com.example.university.entity.Student;
 import com.example.university.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -31,5 +32,15 @@ public class StudentController {
     @PostMapping("/student/save")
     public Student save(@RequestBody Student student) {
         return studentService.save(student);
+    }
+
+    @DeleteMapping("/student/delete/{id}")
+    public ResponseEntity<Object> delete(@PathVariable Long id) {
+        try {
+            studentService.delete(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 }

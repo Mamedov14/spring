@@ -34,4 +34,10 @@ public class StudentService implements BaseService<Student> {
                 student.getLastName(), student.getName());
         return studentRepository.save(saveStudent);
     }
+
+    @Override
+    public void delete(Long id) {
+        studentRepository.delete(id);
+    }
+
 }
