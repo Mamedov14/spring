@@ -11,16 +11,4 @@ public class StudentDto {
     private String email;
     private Integer age;
     private Integer course;
-
-    public static Student StudentToDto(StudentDto studentDto) {
-        Student student = new Student();
-        student.setId(studentDto.getId());
-        student.setName(studentDto.getName());
-        student.setLastName(studentDto.getLastName());
-        student.setEmail(studentDto.getEmail());
-        student.setAge(studentDto.getAge());
-        student.setCourse(studentDto.getCourse());
-
-        return student;
-    }
 }

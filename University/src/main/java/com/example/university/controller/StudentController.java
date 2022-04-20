@@ -1,5 +1,6 @@
 package com.example.university.controller;
 
+import com.example.university.dto.StudentDto;
 import com.example.university.entity.Student;
 import com.example.university.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +19,18 @@ public class StudentController {
     }
 
     @GetMapping("/students")
-    public List<Student> findAllStudent() {
+    public List<StudentDto> findAllStudent() {
         return studentService.findAll();
     }
 
     @GetMapping("/student/{id}")
-    public Student findByIdStudent(@PathVariable Long id) {
+    public StudentDto findByIdStudent(@PathVariable Long id) {
         return studentService.findById(id);
     }
 
     @PostMapping("/student/save")
-    public void saveStudent(@RequestBody Student student) {
-        studentService.save(student);
+    public void saveStudent(@RequestBody StudentDto studentDto) {
+        studentService.save(studentDto);
     }
 
     @DeleteMapping("/student/delete/{id}")
@@ -38,7 +39,7 @@ public class StudentController {
     }
 
     @PutMapping("/student/update")
-    public void updateStudent(@RequestBody Student student) {
-        studentService.update(student);
+    public void updateStudent(@RequestBody StudentDto studentDto) {
+        studentService.update(studentDto);
     }
 }
