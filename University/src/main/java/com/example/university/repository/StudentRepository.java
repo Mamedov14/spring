@@ -7,8 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
     @Query(value = "SELECT * FROM student WHERE id = ?1", nativeQuery = true)
