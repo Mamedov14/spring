@@ -2,11 +2,18 @@ package com.example.university.mapper;
 
 import com.example.university.dto.StudentDto;
 import com.example.university.entity.Student;
+import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StudentMapper {
+@Mapper(componentModel = "spring")
+public interface StudentMapper {
 
+    StudentDto toDto(Student student);
+
+    Student toModel(StudentDto studentDto);
+
+/*
     public StudentDto toDto(Student student) {
         StudentDto studentDto = new StudentDto();
         studentDto.setId(student.getId());
@@ -18,6 +25,7 @@ public class StudentMapper {
 
         return studentDto;
     }
+*/
 
 /*
     public static Student DtoToStudent(StudentDto studentDto) {

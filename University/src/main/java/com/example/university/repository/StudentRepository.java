@@ -14,7 +14,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO student(name, last_name, email, course, age) " +
+    @Query(value = "INSERT INTO student(\"name\", last_name, email, course, age) " +
             "VALUES(?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
     void saveStudent(String name, String lastName, String email, Integer course, Integer age);
 
