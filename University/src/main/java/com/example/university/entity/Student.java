@@ -6,15 +6,13 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-import java.util.List;
-import java.util.Set;
-
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "student")
 public class Student {
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -35,7 +33,7 @@ public class Student {
     @Column
     private Integer course;
 
-    //    @ManyToOne
-    //    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
-    //    private Teacher teacher;
+//    @ManyToOne
+//    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
+//    private Teacher teacher;
 }
