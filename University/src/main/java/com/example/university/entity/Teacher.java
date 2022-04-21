@@ -13,6 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "teacher")
 public class Teacher {
 
     @Id
