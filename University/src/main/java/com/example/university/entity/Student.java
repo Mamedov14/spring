@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import java.util.List;
+import java.util.Set;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
@@ -13,7 +16,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {
-
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
@@ -34,6 +36,6 @@ public class Student {
     private Integer course;
 
     //    @ManyToOne
-//    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
-//    private Teacher teacher;
+    //    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
+    //    private Teacher teacher;
 }

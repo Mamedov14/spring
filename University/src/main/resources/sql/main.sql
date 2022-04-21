@@ -31,3 +31,6 @@ FROM student
 DELETE
 FROM teacher
 WHERE id = 1;
+
+DROP TABLE teacher_students;
+DROP TABLE student_teachers;
