@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -20,4 +23,7 @@ public class Role {
 
     @Column
     private String name;
+
+    @ManyToMany(mappedBy = "roles")
+    private Collection<User> users = new ArrayList<>();
 }

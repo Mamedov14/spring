@@ -34,3 +34,10 @@ WHERE id = 1;
 
 DROP TABLE teacher_students;
 DROP TABLE student_teachers;
+
+DROP TABLE role;
+DROP TABLE student;
+DROP TABLE teacher;
+DROP TABLE user_roles;
+
+DROP SEQUENCE hibernate_sequence;
