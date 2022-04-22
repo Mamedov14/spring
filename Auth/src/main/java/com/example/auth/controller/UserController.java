@@ -1,12 +1,12 @@
 package com.example.auth.controller;
 
+import com.example.auth.entity.Role;
+import com.example.auth.entity.RoleToUserForm;
 import com.example.auth.entity.User;
 import com.example.auth.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +24,21 @@ public class UserController {
     @GetMapping("/user")
     public ResponseEntity<User> getUser(String userName) {
         return ResponseEntity.ok().body(userService.getUser(userName));
+    }
+
+    @PostMapping("/user/save")
+    public ResponseEntity<User> saveUser(@RequestBody User user) {
+        return ResponseEntity.ok().body(userService.saveUser(user));
+    }
+
+    @PostMapping("/role/save")
+    public ResponseEntity<Role> saveUser(@RequestBody Role role) {
+        return ResponseEntity.ok().body(userService.saveRole(role));
+    }
+
+    @PostMapping("/role/addToUser")
+    public ResponseEntity<?> addRoleToUser(@RequestBody RoleToUserForm form) {
+        userService.addRoleToUser(form.getUserName(), form.getRoleName());
+        return ResponseEntity.ok().build();
     }
 }
