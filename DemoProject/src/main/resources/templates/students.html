@@ -9,7 +9,7 @@
 <h3>Students</h3>
 <table>
     <tr>
-        <th>ID</th>
+        <th>Info</th>
         <th>Name</th>
         <th>Last Name</th>
         <th>Age</th>
@@ -18,7 +18,7 @@
         <th>Average</th>
     </tr>
     <tr th:each="student : ${students}">
-        <td th:text="${student.id}"></td>
+        <td><a th:href="@{/student/{id}(id=${student.id})}">Open</a></td>
         <td th:text="${student.name}"></td>
         <td th:text="${student.lastName}">></td>
         <td th:text="${student.age}"></td>
