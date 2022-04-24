@@ -25,21 +25,21 @@ public class StudentService implements BaseService<Student> {
 
     @Override
     public void save(Student student) {
-
+        studentRepository.save(student);
     }
 
     @Override
     public void update(Student student) {
-
+        // потом!
     }
 
     @Override
     public void deleteById(Long id) {
-
+        studentRepository.deleteById(id);
     }
 
     @Override
     public void deleteAll() {
-
+        studentRepository.deleteAll();
     }
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/style.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+</head>
+<body>
+<h3>Students</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Course</th>
+        <th>Number Group</th>
+        <th>Average</th>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.lastName}">></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.course}"></td>
+        <td th:text="${student.numberGroup}"></td>
+        <td th:text="${student.average}"></td>
+        <!--
+            <td><a th:href="@{student/{id}(id=${student.id})}">Open</a></td>
+            <td><a th:href="@{update/{id}(id=${student.id})}">Edit</a></td>
+            <td><a th:href="@{delete/{id}(id=${student.id})}">Delete</a></td>
+        -->
+    </tr>
+</table>
+<!--<h4><a href="/addStudent">Create Student</a></h4>-->
+<h4><a href="/">Back</a></h4>
+</body>
+</html>
