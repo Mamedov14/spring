@@ -6,6 +6,12 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import static javax.persistence.CascadeType.*;
+import static javax.persistence.FetchType.*;
 import static javax.persistence.GenerationType.*;
 
 @Entity
@@ -28,4 +34,20 @@ public class Product {
     private String city;
 
     private String author;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
+    private List<Image> images = new ArrayList<>();
+
+    private Long previewImageId;
+    private LocalDateTime dateOfCreated;
+
+    @PrePersist
+    private void init() { // init method for data local time
+        dateOfCreated = LocalDateTime.now();
+    }
+
+    public void addImageToProduct(Image image) {
+        image.setProduct(this);
+        images.add(image);
+    }
 }
