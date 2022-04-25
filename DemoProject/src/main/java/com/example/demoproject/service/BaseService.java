@@ -1,7 +1,5 @@
 package com.example.demoproject.service;
 
-import com.example.demoproject.entity.Student;
-
 import java.util.List;
 
 public interface BaseService<T> {
