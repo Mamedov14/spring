@@ -3,11 +3,13 @@ package com.example.demoproject.service;
 import com.example.demoproject.entity.User;
 import com.example.demoproject.entity.enums.Role;
 import com.example.demoproject.repository.UserRepository;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+@Data
 @Service
 @RequiredArgsConstructor
 @Slf4j
