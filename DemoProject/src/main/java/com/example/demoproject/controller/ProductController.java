@@ -26,7 +26,7 @@ public class ProductController {
         return "products";
     }
 
-    @Transactional
+//    @Transactional
     @GetMapping("/product/{id}")
     public String productInfo(@PathVariable Long id, Model model) {
         Product product = productService.findByIdProduct(id);
@@ -35,6 +35,7 @@ public class ProductController {
         return "product-info";
     }
 
+//    @Transactional
     @PostMapping("/product/create")
     public String createProduct(@RequestParam("file1") MultipartFile file1, @RequestParam("file2") MultipartFile file2,
                                 @RequestParam("file3") MultipartFile file3, Product product) throws IOException {
