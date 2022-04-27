@@ -3,7 +3,6 @@ package com.example.demoproject.controller;
 import com.example.demoproject.entity.Image;
 import com.example.demoproject.repository.ImageRepository;
 import lombok.RequiredArgsConstructor;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +19,7 @@ public class ImageController {
     private final ImageRepository imageRepository;
 
     @GetMapping("/images/{id}")
-    private @NotNull ResponseEntity<?> getImageById(@PathVariable Long id) {
+    public ResponseEntity<?> getImageById(@PathVariable Long id) {
         Image image = imageRepository.findById(id).orElse(null);
         return ResponseEntity.ok()
                 .header("fileName", image.getOriginalFileName())
