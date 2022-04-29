@@ -29,8 +29,8 @@ public class Class {
     @ManyToMany
     @JoinTable(
             name = "leads",
-            joinColumns = @JoinColumn(name = "teacher_id"),
-            inverseJoinColumns = @JoinColumn(name = "class_id")
+            joinColumns = @JoinColumn(name = "class_id"),
+            inverseJoinColumns = @JoinColumn(name = "teacher_id")
     )
     private List<Teacher> teachers;
 }

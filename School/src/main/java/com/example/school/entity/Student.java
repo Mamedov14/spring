@@ -21,7 +21,6 @@ public class Student {
     private String firstName;
     private String lastName;
     private Date dateOfBirth;
-    private String nameClass;
     private String address;
     private String phoneNumber;
 
