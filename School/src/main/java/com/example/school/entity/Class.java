@@ -17,9 +17,14 @@ public class Class {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String title;
+
     @OneToOne
     @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     private Teacher teacher;
+
+    @OneToMany(mappedBy = "_class")
+    private List<Student> students;
 
     @ManyToMany
     @JoinTable(

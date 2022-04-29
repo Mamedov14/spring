@@ -25,6 +25,10 @@ public class Student {
     private String address;
     private String phoneNumber;
 
+    @ManyToOne
+    @JoinColumn(name = "class_id", referencedColumnName = "id")
+    private Class _class;
+
     @ManyToMany(mappedBy = "students")
     private List<Subject> subjects;
 
