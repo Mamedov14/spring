@@ -25,6 +25,7 @@ public class Student {
     private String address;
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "student")
-    private List<Rating> ratings;
+    @ManyToMany(mappedBy = "students")
+    private List<Subject> subjects;
+
 }

@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,4 +19,10 @@ public class Teacher {
     private String firstName;
     private String lastName;
     private String patronymic;
+
+    @ManyToMany(mappedBy = "teachers")
+    private List<Subject> subjects;
+
+    @ManyToMany(mappedBy = "teachers")
+    private List<Class> classes;
 }

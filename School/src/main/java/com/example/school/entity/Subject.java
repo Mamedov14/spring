@@ -18,6 +18,19 @@ public class Subject {
     private Long id;
     private String subjectName;
 
-    @OneToMany(mappedBy = "subject")
-    private List<Rating> ratings;
+    @ManyToMany
+    @JoinTable(
+            name = "ratings",
+            joinColumns = @JoinColumn(name = "subject_id"),
+            inverseJoinColumns = @JoinColumn(name = "student_id")
+    )
+    private List<Student> students;
+
+    @ManyToMany
+    @JoinTable(
+            name = "leads",
+            joinColumns = @JoinColumn(name = "teacher_id"),
+            inverseJoinColumns = @JoinColumn(name = "subject_id")
+    )
+    private List<Teacher> teachers;
 }
