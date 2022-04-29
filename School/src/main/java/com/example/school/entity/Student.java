@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,4 +24,7 @@ public class Student {
     private String nameClass;
     private String address;
     private String phoneNumber;
+
+    @OneToMany(mappedBy = "student")
+    private List<Rating> ratings;
 }
