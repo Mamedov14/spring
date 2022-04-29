@@ -19,6 +19,10 @@ public class Teacher {
     private String firstName;
     private String lastName;
     private String patronymic;
+    private boolean coolGuide; // классный руководитель?
+
+    @OneToOne(mappedBy = "teacher")
+    private Class _class;
 
     @ManyToMany(mappedBy = "teachers")
     private List<Subject> subjects;
