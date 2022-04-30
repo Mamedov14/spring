@@ -16,10 +16,11 @@ public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firstName;
-    private String lastName;
-    private String patronymic;
     private boolean coolGuide; // классный руководитель?
+
+    @ManyToOne
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person person;
 
     @OneToOne(mappedBy = "teacher")
     private Class _class;
@@ -29,4 +30,7 @@ public class Teacher {
 
     @ManyToMany(mappedBy = "teachers")
     private List<Class> classes;
+
+    @ManyToMany(mappedBy = "teachersHomeworks")
+    private List<Subject> homeworks;
 }

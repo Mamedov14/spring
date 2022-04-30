@@ -33,4 +33,12 @@ public class Subject {
             inverseJoinColumns = @JoinColumn(name = "teacher_id")
     )
     private List<Teacher> teachers;
+
+    @ManyToMany
+    @JoinTable(
+            name = "homeworks",
+            joinColumns = @JoinColumn(name = "subject_id"),
+            inverseJoinColumns = @JoinColumn(name = "teacher_id")
+    )
+    private List<Teacher> teachersHomeworks;
 }
