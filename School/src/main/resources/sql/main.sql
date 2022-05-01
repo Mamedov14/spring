@@ -1,109 +1,80 @@
--- таблица учителей (teachers)
+INSERT INTO persons(last_name, first_name, patronymic, date_of_birth, phone_number)
+VALUES ('Mamedov', 'Vagif', 'Vagifovich', '2002-10-14', '+79991002222'),
+       ('Mamedov', 'Ruslan', 'Vagifovich', '2001-07-12', '+79991002222'),
+       ('Danilov', 'Maks', 'Sergeevich', null, '+79991002222'),
+       ('Anisimov', 'Pavel', 'Sergeevich', null, '+79991002222');
 
-INSERT INTO teachers(last_name, first_name, patronymic, cool_guide)
-VALUES ('Иванова', 'Мария', 'Ивановна', true),
-       ('Циркуль', 'Альберт', 'Петрович', false),
-       ('Попинс', 'Мэри', 'Джоновна', true),
-       ('Присидайло', 'Пётр', 'Петрович', false),
-       ('Компьютерщиков', 'Евгений', 'Евгеньевич', false),
-       ('Ньютонова', 'Элла', 'Андреевна', true);
+INSERT INTO persons(last_name, first_name, patronymic, date_of_birth, phone_number)
+VALUES ('Shvedun', 'Denis', 'Vladimirovich', null, null);
 
--- таблица предметов (subjects)
+INSERT INTO persons(last_name, first_name, patronymic, date_of_birth, phone_number)
+VALUES ('Turbin', 'Mihail', 'Vyacheslavovich', null, null),
+       ('Zaligaeva', 'Marina', 'Evgenia', null, null);
+
+INSERT INTO directors(person_id)
+VALUES (5);
+INSERT INTO teachers(person_id, cool_guide)
+VALUES (6, false),
+       (7, false);
+INSERT INTO students(person_id, address, class_id)
+VALUES (1, null, 1),
+       (2, null, 1),
+       (3, null, 2),
+       (4, null, 2);
 
 INSERT INTO subjects(subject_name)
-VALUES ('Литература'),
-       ('Математика'),
-       ('Химия'),
-       ('Английский'),
-       ('Информатика'),
-       ('Физика'),
-       ('Физкультура'),
-       ('История');
-
--- таблица классов (class)
+VALUES ('Algebra'),
+       ('Matan');
 
 INSERT INTO class(title, teacher_id)
-VALUES ('11-А', 1),
-       ('11-Б', 3),
-       ('11-В', 6);
+VALUES ('11A', 1),
+       ('11Б', 2);
 
--- таблица учеников (students)
-
-INSERT INTO students(first_name, last_name, address, date_of_birth,
-                     class_id, phone_number)
-VALUES ('Павел', 'Смайликов', 'ул. Цветная', '1992-02-15', 1, '123-45-67'),
-       ('Ольга', 'Птицина', 'ул. Отдыха', '1992-01-25', 1, '123-54-32'),
-       ('Сергей', 'Петренко', 'ул. Цветная', '1992-10-05', 1, '123-76-89'),
-       ('Роман', 'Зайчук', 'ул. Науки', '1992-12-06', 1, '234-56-78'),
-       ('Семён', 'Форумов', 'ул. Спортивная', '1992-08-17', 1, '213-43-21'),
-
-       ('Эдуард', 'Грибский', 'ул. Науки', '1992-05-24', 2, '234-51-2'),
-       ('Иван', 'Агапов', 'ул. Цветная', '1992-09-10', 2, '123-09-01'),
-       ('Василиса', 'Прекрасная', 'ул. Отдыха', '1992-05-05', 2, '123-50-40'),
-       ('Диана', 'Олеевская', 'ул. Науки', '1992-02-16', 2, '321-45-67'),
-       ('Элеонора', 'Грищенко', 'ул. Спортивная', '1992-03-03', 2, '435-12-18'),
-
-       ('Федор', 'Мандрыкин', 'ул. Спортивная', '1992-12-05', 3, '231-45-84'),
-       ('Ольга', 'Хитрая', 'ул. Отдыха', '1992-04-04', 3, '127-63-22'),
-       ('Игорь', 'Соболькин', 'ул. Отдыха', '1992-11-03', 3, '224-55-33'),
-       ('Олег', 'Хватский', 'ул. Науки', '1992-02-23', 3, '224-11-78'),
-       ('Лев', 'Гордиенко', 'ул. Цветная', '1992-03-08', 3, '225-77-82');
-
--- таблица преподаёт (leads)
+INSERT INTO ratings(student_id, subject_id, rating, period)
+VALUES (5, 1, 5, null),
+       (5, 2, 4, null),
+       (6, 1, 3, null),
+       (6, 2, 4, null),
+       (7, 1, 2, null),
+       (7, 2, 5, null),
+       (8, 1, 4, null),
+       (8, 2, 3, null);
 
 INSERT INTO leads(teacher_id, subject_id, class_id)
-VALUES (1, 1, 3),
-       (1, 1, 2),
-       (1, 8, 1),
-       (1, 1, 1),
-       (5, 5, 2),
-       (5, 5, 1),
-       (5, 5, 3),
-       (6, 6, 3),
-       (3, 4, 1),
-       (4, 7, 3),
-       (4, 7, 2),
-       (4, 7, 1),
-       (2, 2, 3),
-       (2, 3, 2),
+VALUES (1, 1, 1),
+       (1, 2, 2),
+       (2, 1, 1),
        (2, 2, 2);
 
--- таблица оценок (ratings)
-
-INSERT INTO ratings(student_id, subject_id, rating)
-VALUES (1, 1, 5),
-       (1, 1, 5),
-       (1, 1, 5),
-       (1, 4, 3),
-       (1, 4, 4),
-       (1, 4, 4),
-       (1, 8, 4),
-       (1, 8, 4),
-       (1, 8, 4),
-       (1, 5, 4),
-       (1, 5, 5),
-       (1, 5, 5),
-       (1, 7, 5),
-       (1, 7, 5),
-       (1, 7, 5);
-
-
--- вывод таблиц select
+INSERT INTO homeworks(teacher_id, subject_id, content, date_start, date_end)
+VALUES (1, 1, '№1-10', null, null),
+       (1, 2, '№5-10', null, null),
+       (2, 1, 'ничего не задал', null, null),
+       (2, 2, '№25-36', null, null);
 
 SELECT *
-FROM teachers;
-
+FROM persons;
 SELECT *
-FROM subjects;
-
-SELECT *
-FROM class;
-
+FROM directors;
 SELECT *
 FROM students;
-
 SELECT *
-FROM leads;
-
+FROM teachers;
+SELECT *
+FROM class;
+SELECT *
+FROM subjects;
 SELECT *
 FROM ratings;
+SELECT *
+FROM leads;
+SELECT *
+FROM homeworks;
+
+
+SELECT last_name, first_name, content
+FROM students
+         JOIN persons ON students.person_id = persons.id
+         JOIN "class" ON class.id = students.class_id
+         JOIN teachers ON class.teacher_id = teachers.id
+         JOIN homeworks ON teachers.id = homeworks.teacher_id;
