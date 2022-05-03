@@ -16,11 +16,12 @@ VALUES (5);
 INSERT INTO teachers(person_id, cool_guide)
 VALUES (6, false),
        (7, false);
-INSERT INTO students(person_id, address, class_id)
-VALUES (1, null, 1),
-       (2, null, 1),
-       (3, null, 2),
-       (4, null, 2);
+
+INSERT INTO students(address, "content", rating, subject_name, title, class_id, person_id)
+VALUES (null, null, null, null, null, 1, 1),
+       (null, null, null, null, null, 1, 2),
+       (null, null, null, null, null, 2, 3),
+       (null, null, null, null, null, 2, 4);
 
 INSERT INTO subjects(subject_name)
 VALUES ('Algebra'),
@@ -31,14 +32,14 @@ VALUES ('11A', 1),
        ('11Б', 2);
 
 INSERT INTO ratings(student_id, subject_id, rating, period)
-VALUES (5, 1, 5, null),
-       (5, 2, 4, null),
-       (6, 1, 3, null),
-       (6, 2, 4, null),
-       (7, 1, 2, null),
-       (7, 2, 5, null),
-       (8, 1, 4, null),
-       (8, 2, 3, null);
+VALUES (1, 1, 5, null),
+       (1, 2, 4, null),
+       (2, 1, 3, null),
+       (2, 2, 4, null),
+       (3, 1, 2, null),
+       (3, 2, 5, null),
+       (4, 1, 4, null),
+       (4, 2, 3, null);
 
 INSERT INTO leads(teacher_id, subject_id, class_id)
 VALUES (1, 1, 1),
@@ -72,9 +73,21 @@ SELECT *
 FROM homeworks;
 
 
-SELECT last_name, first_name, content
+SELECT last_name, first_name, homeworks."content", subjects.subject_name
 FROM students
          JOIN persons ON students.person_id = persons.id
-         JOIN "class" ON class.id = students.class_id
-         JOIN teachers ON class.teacher_id = teachers.id
-         JOIN homeworks ON teachers.id = homeworks.teacher_id;
+         JOIN "class" ON "class".id = students.class_id
+         JOIN teachers ON "class".teacher_id = teachers.id
+         JOIN homeworks ON teachers.id = homeworks.teacher_id
+         JOIN subjects ON homeworks.subject_id = subjects.id
+WHERE students.id = 1;
+
+SELECT last_name, first_name, subjects.subject_name
+FROM students
+         JOIN persons ON students.person_id = persons.id
+         JOIN "class" ON "class".id = students.class_id
+         JOIN teachers ON "class".teacher_id = teachers.id
+         JOIN homeworks ON teachers.id = homeworks.teacher_id
+         JOIN subjects ON homeworks.subject_id = subjects.id
+WHERE students.id = 1;
+
