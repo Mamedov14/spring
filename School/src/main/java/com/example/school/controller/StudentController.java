@@ -18,12 +18,12 @@ public class StudentController {
 
     private final StudentService studentService;
 
-    @GetMapping("/homework/{id}")
-    public StudentDTO findByIdStudent(@PathVariable Long id) {
-        return studentService.findByIdStudent(id);
+    @GetMapping("/students/")
+    public List<StudentDTO> findAllStudents() {
+        return studentService.findAllStudents();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/homework/{id}")
     public List<StudentHomework> getHomework(@PathVariable Long id) {
         return studentService.getHomework(id);
     }

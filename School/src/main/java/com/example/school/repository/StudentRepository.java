@@ -15,13 +15,17 @@ import java.util.List;
 public class StudentRepository {
     private final JdbcTemplate jdbcTemplate;
 
-    public StudentDTO findByIdStudent(Long id) {
-        String sql = "SELECT id, address FROM students WHERE id = ?";
-        return jdbcTemplate.queryForObject(sql, new StudentMapper(), id);
+    public List<StudentDTO> findAllStudents() {
+        String sql = """
+                SELECT students.id, last_name, first_name, patronymic, address, class.title, persons.phone_number
+                FROM students
+                         JOIN persons ON students.person_id = persons.id
+                         JOIN class ON students.class_id = class.id;
+                """;
+        return jdbcTemplate.query(sql, new StudentMapper());
     }
 
     public List<StudentHomework> getHomework(Long id) {
-        //language=sql
         String sql = """
                 SELECT students.id, persons.last_name, persons.first_name, subjects.subject_name, class.title, homeworks.content
                 FROM students

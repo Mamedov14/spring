@@ -13,8 +13,8 @@ import java.util.List;
 public class StudentService {
     private final StudentRepository studentRepository;
 
-    public StudentDTO findByIdStudent(Long id) {
-        return studentRepository.findByIdStudent(id);
+    public List<StudentDTO> findAllStudents() {
+        return studentRepository.findAllStudents();
     }
 
     public List<StudentHomework> getHomework(Long id) {
