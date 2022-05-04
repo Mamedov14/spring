@@ -88,3 +88,10 @@ SELECT students.id, last_name, first_name, patronymic, address, class.title, per
 FROM students
          JOIN persons ON students.person_id = persons.id
          JOIN class ON students.class_id = class.id;
+
+SELECT subject_name, content, date_start, date_end, title
+FROM homeworks
+         JOIN subjects ON homeworks.subject_id = subjects.id
+         JOIN teachers ON teachers.id = homeworks.teacher_id
+         JOIN class ON homeworks.teacher_id = class.teacher_id
+WHERE subject_name = 'Algebra'

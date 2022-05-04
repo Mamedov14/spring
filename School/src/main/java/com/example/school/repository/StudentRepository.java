@@ -2,8 +2,10 @@ package com.example.school.repository;
 
 import com.example.school.dto.student.StudentDTO;
 import com.example.school.dto.student.StudentHomework;
+import com.example.school.dto.student.SubjectHomework;
 import com.example.school.mapper.StudentHomeworkMapper;
 import com.example.school.mapper.StudentMapper;
+import com.example.school.mapper.SubjectHomeworkMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -38,4 +40,18 @@ public class StudentRepository {
                 """;
         return jdbcTemplate.query(sql, new StudentHomeworkMapper(), id);
     }
+
+
+    public List<SubjectHomework> getSubjectHomework(String subjectName) {
+        String sql = """
+                SELECT subject_name, content, date_start, date_end, title
+                        FROM homeworks
+                        JOIN subjects ON homeworks.subject_id = subjects.id
+                        JOIN teachers ON teachers.id = homeworks.teacher_id
+                        JOIN class ON homeworks.teacher_id = class.teacher_id
+                WHERE subject_name = ?
+                """;
+        return jdbcTemplate.query(sql, new SubjectHomeworkMapper(), subjectName);
+    }
+
 }
