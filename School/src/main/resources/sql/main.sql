@@ -17,11 +17,11 @@ INSERT INTO teachers(person_id, cool_guide)
 VALUES (6, false),
        (7, false);
 
-INSERT INTO students(address, "content", rating, subject_name, title, class_id, person_id)
-VALUES (null, null, null, null, null, 1, 1),
-       (null, null, null, null, null, 1, 2),
-       (null, null, null, null, null, 2, 3),
-       (null, null, null, null, null, 2, 4);
+INSERT INTO students(address, class_id, person_id)
+VALUES (null, 1, 1),
+       (null, 1, 2),
+       (null, 2, 3),
+       (null, 2, 4);
 
 INSERT INTO subjects(subject_name)
 VALUES ('Algebra'),
@@ -73,7 +73,7 @@ SELECT *
 FROM homeworks;
 
 
-SELECT last_name, first_name, homeworks."content", subjects.subject_name
+SELECT last_name, first_name, class.title, homeworks."content", subjects.subject_name
 FROM students
          JOIN persons ON students.person_id = persons.id
          JOIN "class" ON "class".id = students.class_id

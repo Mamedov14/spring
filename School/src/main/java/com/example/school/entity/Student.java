@@ -1,6 +1,5 @@
 package com.example.school.entity;
 
-import com.example.school.dto.StudentHomework;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,9 +17,6 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String address;
-
-    @Embedded
-    private StudentHomework studentHomework;
 
     @ManyToOne
     @JoinColumn(name = "person_id", referencedColumnName = "id")
