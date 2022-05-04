@@ -81,7 +81,7 @@ FROM students
          JOIN teachers ON class.teacher_id = teachers.id
          JOIN homeworks ON teachers.id = homeworks.teacher_id
          JOIN subjects ON homeworks.subject_id = subjects.id
-WHERE students.id = 1
+WHERE students.id = 1;
 
 
 SELECT students.id, last_name, first_name, patronymic, address, class.title, persons.phone_number
@@ -94,4 +94,10 @@ FROM homeworks
          JOIN subjects ON homeworks.subject_id = subjects.id
          JOIN teachers ON teachers.id = homeworks.teacher_id
          JOIN class ON homeworks.teacher_id = class.teacher_id
-WHERE subject_name = 'Algebra'
+WHERE subject_name = 'Algebra';
+
+SELECT subject_name, title, content, date_start, date_end
+FROM homeworks
+         JOIN subjects on subjects.id = homeworks.subject_id
+         JOIN class on homeworks.teacher_id = class.teacher_id
+WHERE date_start = '2022-05-11';

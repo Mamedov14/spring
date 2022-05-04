@@ -1,5 +1,6 @@
 package com.example.school.controller;
 
+import com.example.school.dto.student.HomeworkByDate;
 import com.example.school.dto.student.StudentDTO;
 import com.example.school.dto.student.StudentHomework;
 import com.example.school.dto.student.SubjectHomework;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -32,5 +34,10 @@ public class StudentController {
     @GetMapping("/subjectHomework/{subjectName}")
     public List<SubjectHomework> getSubjectHomework(@PathVariable String subjectName) {
         return studentService.getSubjectHomework(subjectName);
+    }
+
+    @GetMapping("/getHomeworkByDate/{dateEnd}")
+    public List<HomeworkByDate> getHomeworkByDate(@PathVariable LocalDateTime dateEnd) {
+        return studentService.getHomeworkByDate(dateEnd);
     }
 }

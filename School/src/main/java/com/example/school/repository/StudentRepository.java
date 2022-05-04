@@ -1,8 +1,10 @@
 package com.example.school.repository;
 
+import com.example.school.dto.student.HomeworkByDate;
 import com.example.school.dto.student.StudentDTO;
 import com.example.school.dto.student.StudentHomework;
 import com.example.school.dto.student.SubjectHomework;
+import com.example.school.mapper.HomeworkByDateMapper;
 import com.example.school.mapper.StudentHomeworkMapper;
 import com.example.school.mapper.StudentMapper;
 import com.example.school.mapper.SubjectHomeworkMapper;
@@ -10,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -54,4 +57,14 @@ public class StudentRepository {
         return jdbcTemplate.query(sql, new SubjectHomeworkMapper(), subjectName);
     }
 
+    public List<HomeworkByDate> getHomeworkByDate(LocalDateTime dateEnd) {
+        String sql = """
+                SELECT subject_name, title, content, date_start, date_end
+                        FROM homeworks
+                        JOIN subjects on subjects.id = homeworks.subject_id
+                        JOIN class on homeworks.teacher_id = class.teacher_id
+                WHERE date_end = ?;
+                """;
+        return jdbcTemplate.query(sql, new HomeworkByDateMapper(), dateEnd);
+    }
 }
