@@ -1,6 +1,6 @@
 package com.example.school.mapper;
 
-import com.example.school.dto.StudentDTO;
+import com.example.school.dto.student.StudentDTO;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

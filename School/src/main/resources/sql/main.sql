@@ -82,7 +82,7 @@ FROM students
          JOIN subjects ON homeworks.subject_id = subjects.id
 WHERE students.id = 1;
 
-SELECT last_name, first_name, subjects.subject_name
+SELECT last_name, first_name, subjects.subject_name, class.title, homeworks.content
 FROM students
          JOIN persons ON students.person_id = persons.id
          JOIN "class" ON "class".id = students.class_id
@@ -91,3 +91,20 @@ FROM students
          JOIN subjects ON homeworks.subject_id = subjects.id
 WHERE students.id = 1;
 
+SELECT students.id, persons.last_name, persons.first_name, subjects.subject_name, class.title, homeworks.content
+FROM students
+         JOIN persons ON students.person_id = persons.id
+         JOIN class ON class.id = students.class_id
+         JOIN teachers ON class.teacher_id = teachers.id
+         JOIN homeworks ON teachers.id = homeworks.teacher_id
+         JOIN subjects ON homeworks.subject_id = subjects.id
+WHERE students.id = 1;
+
+SELECT students.id, persons.last_name, persons.first_name, subjects.subject_name, class.title, homeworks.content
+FROM students
+         JOIN persons ON students.person_id = persons.id
+         JOIN class ON class.id = students.class_id
+         JOIN teachers ON class.teacher_id = teachers.id
+         JOIN homeworks ON teachers.id = homeworks.teacher_id
+         JOIN subjects ON homeworks.subject_id = subjects.id
+WHERE students.id = 1

@@ -1,10 +1,12 @@
 package com.example.school.service;
 
-import com.example.school.dto.StudentDTO;
-import com.example.school.entity.Student;
+import com.example.school.dto.student.StudentDTO;
+import com.example.school.dto.student.StudentHomework;
 import com.example.school.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -13,5 +15,9 @@ public class StudentService {
 
     public StudentDTO findByIdStudent(Long id) {
         return studentRepository.findByIdStudent(id);
+    }
+
+    public List<StudentHomework> getHomework(Long id) {
+        return studentRepository.getHomework(id);
     }
 }
