@@ -3,13 +3,14 @@ package com.example.school.controller;
 import com.example.school.dto.student.*;
 import com.example.school.service.StudentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import static org.springframework.format.annotation.DateTimeFormat.ISO.*;
 
 @RestController
 @RequestMapping("/")
@@ -33,8 +34,8 @@ public class StudentController {
         return studentService.getSubjectHomework(subjectName);
     }
 
-    @GetMapping("/getHomeworkByDate/{dateEnd}")
-    public List<HomeworkByDate> getHomeworkByDate(@PathVariable LocalDate dateEnd) {
+    @GetMapping("/getHomeworkByDate/")
+    public List<HomeworkByDate> getHomeworkByDate(@RequestParam @DateTimeFormat(iso = DATE) LocalDate dateEnd) {
         return studentService.getHomeworkByDate(dateEnd);
     }
 

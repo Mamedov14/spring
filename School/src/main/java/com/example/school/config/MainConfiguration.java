@@ -9,8 +9,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 @Configuration
-@ComponentScan(basePackages = {"com.example.school.repository",
-        "com.example.school.service"})
+@ComponentScan(basePackages = {"com.example.school.repository", "com.example.school.service"})
 public class MainConfiguration {
     @Bean
     public JdbcTemplate getJdbsTemplate() {
