@@ -1,0 +1,26 @@
+package com.example.school.service;
+
+import com.example.school.entity.Homework;
+import com.example.school.repository.TeacherRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+@Service
+@Slf4j
+@RequiredArgsConstructor
+public class TeacherService {
+
+    private final TeacherRepository teacherRepository;
+
+    public void giveHomework(Homework homework) {
+        if (homework.getContent() != null &&
+                homework.getSubject_id() != null &&
+                homework.getTeacher_id() != null) {
+            log.info("Give Homework!");
+            teacherRepository.giveHomework(homework);
+        } else {
+            log.error("giveHomework request ERROR!");
+        }
+    }
+}

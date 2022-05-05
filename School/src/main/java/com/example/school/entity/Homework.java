@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -22,4 +20,6 @@ public class Homework {
     private String content;
     private LocalDate dateStart;
     private LocalDate dateEnd;
+    private Long teacher_id;
+    private Long subject_id;
 }

@@ -108,3 +108,6 @@ FROM ratings
          JOIN students ON ratings.student_id = students.id
          JOIN subjects ON ratings.subject_id = subjects.id
 WHERE students.id = 1;
+
+INSERT INTO homeworks(content, date_end, date_start, subject_id, teacher_id)
+VALUES ('1-20', )
