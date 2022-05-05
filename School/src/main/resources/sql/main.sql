@@ -100,4 +100,11 @@ SELECT subject_name, title, content, date_start, date_end
 FROM homeworks
          JOIN subjects on subjects.id = homeworks.subject_id
          JOIN class on homeworks.teacher_id = class.teacher_id
-WHERE date_start = '2022-05-11';
+WHERE date_end = '2022-05-02';
+
+
+SELECT students.id, subject_name, rating
+FROM ratings
+         JOIN students ON ratings.student_id = students.id
+         JOIN subjects ON ratings.subject_id = subjects.id
+WHERE students.id = 1;

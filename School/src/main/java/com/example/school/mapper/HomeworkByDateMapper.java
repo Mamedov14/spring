@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 
 public class HomeworkByDateMapper implements RowMapper<HomeworkByDate> {
     @Override
@@ -14,8 +13,8 @@ public class HomeworkByDateMapper implements RowMapper<HomeworkByDate> {
         homework.setSubjectName(resultSets.getString("subject_name"));
         homework.setTitle(resultSets.getString("title"));
         homework.setContent(resultSets.getString("content"));
-        homework.setDateStart((LocalDateTime) resultSets.getObject("date_start"));
-        homework.setDateEnd((LocalDateTime) resultSets.getObject("date_end"));
+        homework.setDateStart(resultSets.getDate("date_start").toLocalDate());
+        homework.setDateEnd(resultSets.getDate("date_end").toLocalDate());
         return homework;
     }
 }

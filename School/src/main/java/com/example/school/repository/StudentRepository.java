@@ -1,18 +1,12 @@
 package com.example.school.repository;
 
-import com.example.school.dto.student.HomeworkByDate;
-import com.example.school.dto.student.StudentDTO;
-import com.example.school.dto.student.StudentHomework;
-import com.example.school.dto.student.SubjectHomework;
-import com.example.school.mapper.HomeworkByDateMapper;
-import com.example.school.mapper.StudentHomeworkMapper;
-import com.example.school.mapper.StudentMapper;
-import com.example.school.mapper.SubjectHomeworkMapper;
+import com.example.school.dto.student.*;
+import com.example.school.mapper.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -57,7 +51,7 @@ public class StudentRepository {
         return jdbcTemplate.query(sql, new SubjectHomeworkMapper(), subjectName);
     }
 
-    public List<HomeworkByDate> getHomeworkByDate(LocalDateTime dateEnd) {
+    public List<HomeworkByDate> getHomeworkByDate(LocalDate dateEnd) {
         String sql = """
                 SELECT subject_name, title, content, date_start, date_end
                         FROM homeworks
@@ -66,5 +60,16 @@ public class StudentRepository {
                 WHERE date_end = ?;
                 """;
         return jdbcTemplate.query(sql, new HomeworkByDateMapper(), dateEnd);
+    }
+
+    public List<StudentRating> getRatingStudent(Long id) {
+        String sql = """
+                SELECT students.id, subject_name, rating
+                FROM ratings
+                         JOIN students ON ratings.student_id = students.id
+                         JOIN subjects ON ratings.subject_id = subjects.id
+                WHERE students.id = ?;
+                """;
+        return jdbcTemplate.query(sql, new StudentRatingMapper(), id);
     }
 }

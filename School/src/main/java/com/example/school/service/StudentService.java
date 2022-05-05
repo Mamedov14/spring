@@ -1,15 +1,11 @@
 package com.example.school.service;
 
-import com.example.school.dto.student.HomeworkByDate;
-import com.example.school.dto.student.StudentDTO;
-import com.example.school.dto.student.StudentHomework;
-import com.example.school.dto.student.SubjectHomework;
+import com.example.school.dto.student.*;
 import com.example.school.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -29,7 +25,11 @@ public class StudentService {
         return studentRepository.getSubjectHomework(subjectName);
     }
 
-    public List<HomeworkByDate> getHomeworkByDate(LocalDateTime dateEnd) {
+    public List<HomeworkByDate> getHomeworkByDate(LocalDate dateEnd) {
         return studentRepository.getHomeworkByDate(dateEnd);
+    }
+
+    public List<StudentRating> getRatingStudent(Long id) {
+        return studentRepository.getRatingStudent(id);
     }
 }
