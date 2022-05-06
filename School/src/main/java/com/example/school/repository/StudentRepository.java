@@ -1,7 +1,7 @@
 package com.example.school.repository;
 
 import com.example.school.dto.student.*;
-import com.example.school.mapper.*;
+import com.example.school.mapper.student.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package com.example.school.mapper;
+package com.example.school.mapper.student;
 
 import com.example.school.dto.student.StudentHomework;
 import org.springframework.jdbc.core.RowMapper;

@@ -1,12 +1,12 @@
 package com.example.school.controller;
 
+import com.example.school.dto.teacher.SubjectRating;
 import com.example.school.entity.Homework;
 import com.example.school.service.TeacherService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/")
@@ -18,5 +18,10 @@ public class TeacherController {
     @PostMapping("/giveHomework/")
     public void giveHomework(@RequestBody Homework homework) {
         teacherService.giveHomework(homework);
+    }
+
+    @GetMapping("/getSubjectRating/{id}")
+    public List<SubjectRating> getSubjectRating(@PathVariable Long id) {
+        return teacherService.getSubjectRating(id);
     }
 }

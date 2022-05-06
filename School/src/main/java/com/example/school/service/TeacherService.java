@@ -1,10 +1,13 @@
 package com.example.school.service;
 
+import com.example.school.dto.teacher.SubjectRating;
 import com.example.school.entity.Homework;
 import com.example.school.repository.TeacherRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Slf4j
@@ -22,5 +25,9 @@ public class TeacherService {
         } else {
             log.error("giveHomework request ERROR!");
         }
+    }
+
+    public List<SubjectRating> getSubjectRating(Long id) {
+        return teacherRepository.getSubjectRating(id);
     }
 }

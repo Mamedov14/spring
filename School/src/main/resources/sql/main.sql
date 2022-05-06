@@ -108,6 +108,28 @@ FROM ratings
          JOIN students ON ratings.student_id = students.id
          JOIN subjects ON ratings.subject_id = subjects.id
 WHERE students.id = 1;
+-- - смотреть успеваемость по предметам, которые ведет
+SELECT teachers.id, last_name, subject_name, rating
+FROM persons
 
-INSERT INTO homeworks(content, date_end, date_start, subject_id, teacher_id)
-VALUES ('1-20', )
+         JOIN students ON persons.id = students.person_id
+         JOIN teachers ON persons.id = teachers.person_id
+         JOIN leads ON teachers.id = leads.teacher_id
+         JOIN subjects ON leads.subject_id = subjects.id
+         JOIN ratings ON subjects.id = ratings.subject_id
+WHERE teachers.id = 1;
+
+SELECT teachers.id               AS teacher_id,
+       teacher_person.last_name  AS teacher_last_name,
+       subjects.subject_name     AS subjects_name,
+       ratings.rating            AS ratings_value,
+       student_person.first_name AS student_first_name,
+       student_person.last_name  AS student_last_name
+FROM persons teacher_person
+         INNER JOIN teachers ON teacher_person.id = teachers.person_id
+         INNER JOIN leads ON leads.teacher_id = teachers.id
+         INNER JOIN subjects ON subjects.id = leads.subject_id
+         INNER JOIN ratings ON ratings.subject_id = subjects.id
+         INNER JOIN students ON students.id = ratings.student_id
+         INNER JOIN persons student_person ON students.person_id = student_person.id
+WHERE teachers.id = ?;
