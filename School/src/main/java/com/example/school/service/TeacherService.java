@@ -34,10 +34,11 @@ public class TeacherService {
     }
 
     public void rateStudent(Rating rating) {
-        teacherRepository.rateStudent(rating);
-    }
-
-    public List<ProgressByClass> getProgressByClass(String className) {
-        return teacherRepository.getProgressByClass(className);
+        if (rating.getStudent_id() != null && rating.getSubject_id() != null) {
+            log.info("Rate Student!");
+            teacherRepository.rateStudent(rating);
+        } else {
+            log.error("rateStudent request ERROR!");
+        }
     }
 }

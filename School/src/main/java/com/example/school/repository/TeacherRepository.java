@@ -58,17 +58,4 @@ public class TeacherRepository {
                 LocalDate.now(), rating.getRating());
     }
 
-    public List<ProgressByClass> getProgressByClass(String className) {
-        String sql = """
-                SELECT student.last_name, student.first_name, class.title, subjects.subject_name, ratings.rating
-                FROM ratings
-                         JOIN students ON ratings.student_id = students.id
-                         JOIN persons student ON students.person_id = student.id
-                         JOIN class ON students.class_id = class.id
-                         JOIN leads on class.id = leads.class_id
-                         JOIN subjects on leads.subject_id = subjects.id
-                WHERE class.title = ?                
-                """;
-        return jdbcTemplate.query(sql, new ProgressByClassMapper(), className);
-    }
 }

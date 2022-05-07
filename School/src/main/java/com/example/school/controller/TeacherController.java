@@ -31,9 +31,4 @@ public class TeacherController {
     public void rateStudent(@RequestBody Rating rating) {
         teacherService.rateStudent(rating);
     }
-
-    @GetMapping("/getProgressByClass/{className}")
-    public List<ProgressByClass> getProgressByClass(@PathVariable String className) {
-        return teacherService.getProgressByClass(className);
-    }
 }
