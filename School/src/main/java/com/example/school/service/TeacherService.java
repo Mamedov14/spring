@@ -2,6 +2,7 @@ package com.example.school.service;
 
 import com.example.school.dto.teacher.SubjectRating;
 import com.example.school.entity.Homework;
+import com.example.school.entity.Rating;
 import com.example.school.repository.TeacherRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,5 +30,9 @@ public class TeacherService {
 
     public List<SubjectRating> getSubjectRating(Long id) {
         return teacherRepository.getSubjectRating(id);
+    }
+
+    public void rateStudent(Rating rating) {
+        teacherRepository.rateStudent(rating);
     }
 }

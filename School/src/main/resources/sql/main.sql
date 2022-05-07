@@ -108,17 +108,8 @@ FROM ratings
          JOIN students ON ratings.student_id = students.id
          JOIN subjects ON ratings.subject_id = subjects.id
 WHERE students.id = 1;
--- - смотреть успеваемость по предметам, которые ведет
-SELECT teachers.id, last_name, subject_name, rating
-FROM persons
 
-         JOIN students ON persons.id = students.person_id
-         JOIN teachers ON persons.id = teachers.person_id
-         JOIN leads ON teachers.id = leads.teacher_id
-         JOIN subjects ON leads.subject_id = subjects.id
-         JOIN ratings ON subjects.id = ratings.subject_id
-WHERE teachers.id = 1;
-
+-- смотреть успеваемость по предметам, которые ведет
 SELECT teachers.id               AS teacher_id,
        teacher_person.last_name  AS teacher_last_name,
        subjects.subject_name     AS subjects_name,
@@ -133,3 +124,8 @@ FROM persons teacher_person
          INNER JOIN students ON students.id = ratings.student_id
          INNER JOIN persons student_person ON students.person_id = student_person.id
 WHERE teachers.id = ?;
+
+-- ставить оценки по своему премету
+
+INSERT INTO ratings(student_id, subject_id, period, rating)
+VALUES (1, 1, '2022-05-07', 5);

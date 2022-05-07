@@ -2,6 +2,7 @@ package com.example.school.controller;
 
 import com.example.school.dto.teacher.SubjectRating;
 import com.example.school.entity.Homework;
+import com.example.school.entity.Rating;
 import com.example.school.service.TeacherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -23,5 +24,10 @@ public class TeacherController {
     @GetMapping("/getSubjectRating/{id}")
     public List<SubjectRating> getSubjectRating(@PathVariable Long id) {
         return teacherService.getSubjectRating(id);
+    }
+
+    @PostMapping("/rateStudent/")
+    public void rateStudent(@RequestBody Rating rating) {
+        teacherService.rateStudent(rating);
     }
 }

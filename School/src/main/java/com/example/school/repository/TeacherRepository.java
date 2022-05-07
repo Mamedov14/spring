@@ -2,6 +2,7 @@ package com.example.school.repository;
 
 import com.example.school.dto.teacher.SubjectRating;
 import com.example.school.entity.Homework;
+import com.example.school.entity.Rating;
 import com.example.school.mapper.teacher.SubjectRatingMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -44,5 +45,14 @@ public class TeacherRepository {
                 WHERE teachers.id = ?               
                 """;
         return jdbcTemplate.query(sql, new SubjectRatingMapper(), id);
+    }
+
+    public void rateStudent(Rating rating) {
+        String sql = """
+                INSERT INTO ratings(student_id, subject_id, period, rating)
+                VALUES (?, ?, ?, ?)
+                """;
+        jdbcTemplate.update(sql, rating.getStudent_id(), rating.getSubject_id(),
+                LocalDate.now(), rating.getRating());
     }
 }

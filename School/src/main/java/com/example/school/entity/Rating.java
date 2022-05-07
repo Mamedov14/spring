@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -18,5 +18,8 @@ public class Rating {
     private Long id;
     private int rating;
 
-    private LocalDateTime period;
+    private Long student_id;
+    private Long subject_id;
+
+    private LocalDate period;
 }
