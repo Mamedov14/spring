@@ -129,3 +129,14 @@ WHERE teachers.id = ?;
 
 INSERT INTO ratings(student_id, subject_id, period, rating)
 VALUES (1, 1, '2022-05-07', 5);
+
+-- посмотреть успеваемость по всем классам
+
+SELECT student.last_name, student.first_name, class.title, subjects.subject_name, ratings.rating
+FROM ratings
+         JOIN students ON ratings.student_id = students.id
+         JOIN persons student ON students.person_id = student.id
+         JOIN class ON students.class_id = class.id
+         JOIN leads on class.id = leads.class_id
+         JOIN subjects on leads.subject_id = subjects.id
+WHERE class.title = '11Б';

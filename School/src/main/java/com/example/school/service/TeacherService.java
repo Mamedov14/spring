@@ -1,5 +1,6 @@
 package com.example.school.service;
 
+import com.example.school.dto.director.ProgressByClass;
 import com.example.school.dto.teacher.SubjectRating;
 import com.example.school.entity.Homework;
 import com.example.school.entity.Rating;
@@ -34,5 +35,9 @@ public class TeacherService {
 
     public void rateStudent(Rating rating) {
         teacherRepository.rateStudent(rating);
+    }
+
+    public List<ProgressByClass> getProgressByClass(String className) {
+        return teacherRepository.getProgressByClass(className);
     }
 }

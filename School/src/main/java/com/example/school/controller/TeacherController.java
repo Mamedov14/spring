@@ -1,5 +1,6 @@
 package com.example.school.controller;
 
+import com.example.school.dto.director.ProgressByClass;
 import com.example.school.dto.teacher.SubjectRating;
 import com.example.school.entity.Homework;
 import com.example.school.entity.Rating;
@@ -29,5 +30,10 @@ public class TeacherController {
     @PostMapping("/rateStudent/")
     public void rateStudent(@RequestBody Rating rating) {
         teacherService.rateStudent(rating);
+    }
+
+    @GetMapping("/getProgressByClass/{className}")
+    public List<ProgressByClass> getProgressByClass(@PathVariable String className) {
+        return teacherService.getProgressByClass(className);
     }
 }

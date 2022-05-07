@@ -1,8 +1,10 @@
 package com.example.school.repository;
 
+import com.example.school.dto.director.ProgressByClass;
 import com.example.school.dto.teacher.SubjectRating;
 import com.example.school.entity.Homework;
 import com.example.school.entity.Rating;
+import com.example.school.mapper.director.ProgressByClassMapper;
 import com.example.school.mapper.teacher.SubjectRatingMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -54,5 +56,19 @@ public class TeacherRepository {
                 """;
         jdbcTemplate.update(sql, rating.getStudent_id(), rating.getSubject_id(),
                 LocalDate.now(), rating.getRating());
+    }
+
+    public List<ProgressByClass> getProgressByClass(String className) {
+        String sql = """
+                SELECT student.last_name, student.first_name, class.title, subjects.subject_name, ratings.rating
+                FROM ratings
+                         JOIN students ON ratings.student_id = students.id
+                         JOIN persons student ON students.person_id = student.id
+                         JOIN class ON students.class_id = class.id
+                         JOIN leads on class.id = leads.class_id
+                         JOIN subjects on leads.subject_id = subjects.id
+                WHERE class.title = ?                
+                """;
+        return jdbcTemplate.query(sql, new ProgressByClassMapper(), className);
     }
 }
