@@ -17,7 +17,7 @@ public class TeacherController {
 
     private final TeacherService teacherService;
 
-    @PostMapping("/giveHomework/")
+    @PostMapping("/giveHomework")
     public void giveHomework(@RequestBody Homework homework) {
         teacherService.giveHomework(homework);
     }
@@ -27,7 +27,7 @@ public class TeacherController {
         return teacherService.getSubjectRating(id);
     }
 
-    @PostMapping("/rateStudent/")
+    @PostMapping("/rateStudent")
     public void rateStudent(@RequestBody Rating rating) {
         teacherService.rateStudent(rating);
     }

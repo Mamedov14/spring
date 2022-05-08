@@ -10,12 +10,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/")
+@CrossOrigin(origins = "http://localhost:3000")
 public class TestController {
 
     @GetMapping("/api")
-    @CrossOrigin(origins = "http://localhost:3000")
     public List<Student> getStudents() {
         return List.of(new Student(1L, "street Belana"),
-                new Student(2L, "street Merkulova"));
+                new Student(2L, "street Merkulova"),
+                new Student(3L, "street Katukova"));
     }
 }

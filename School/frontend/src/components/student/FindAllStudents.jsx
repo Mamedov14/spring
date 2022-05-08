@@ -1,7 +1,7 @@
 import React from 'react'
-import Fetch from "./Fetch";
+import APIService from "../../service/APIService";
 
-export default class StudentComponent extends React.Component {
+export default class FindAllStudents extends React.Component {
 
     constructor(props) {
         super(props)
@@ -11,10 +11,11 @@ export default class StudentComponent extends React.Component {
     }
 
     componentDidMount() {
-        Fetch.getStudents().then((res) => {
+        APIService.findAllStudents().then((res) => {
             this.setState({students: res})
         });
     }
+
 
     render() {
         return (
@@ -24,7 +25,12 @@ export default class StudentComponent extends React.Component {
                     <thead>
                     <tr>
                         <th>id</th>
+                        <th>lastName</th>
+                        <th>firstname</th>
+                        <th>patronymic</th>
                         <th>address</th>
+                        <th>className</th>
+                        <th>phoneNumber</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -32,7 +38,12 @@ export default class StudentComponent extends React.Component {
                         this.state.students.map(student =>
                             <tr key={student.id}>
                                 <td>{student.id}</td>
+                                <td>{student.lastName}</td>
+                                <td>{student.firstName}</td>
+                                <td>{student.patronymic}</td>
                                 <td>{student.address}</td>
+                                <td>{student.className}</td>
+                                <td>{student.phoneNumber}</td>
                             </tr>
                         )
                     }
