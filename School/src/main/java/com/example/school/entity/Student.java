@@ -29,4 +29,8 @@ public class Student {
     @ManyToMany(mappedBy = "students")
     private List<Subject> subjects;
 
+    public Student(Long id, String address) {
+        this.id = id;
+        this.address = address;
+    }
 }
