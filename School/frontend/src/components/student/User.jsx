@@ -11,13 +11,13 @@ class User extends Component {
             password: '',
             email: ''
         }
-        this.changeNameHandler = this.changeNameHandler.bind(this);
-        this.changePasswordHandler = this.changePasswordHandler.bind(this);
-        this.saveOrUpdateUser = this.saveOrUpdateUser.bind(this);
+        this.changeName = this.changeName.bind(this);
+        this.changePassword = this.changePassword.bind(this);
+        this.saveUser = this.saveUser.bind(this);
     }
 
     componentDidMount() {
-        APIService.createUser(this.state.id, this.state.id).then((res) => {
+        APIService.getUserById(this.state.id).then((res) => {
             let user = res.data;
             this.setState({
                 name: user.name,
@@ -27,35 +27,29 @@ class User extends Component {
         });
     }
 
-    saveOrUpdateUser = (event) => {
+    saveUser = (event) => {
         event.preventDefault();
         let user = {
             name: this.state.name,
             password: this.state.password,
             email: this.state.email
         };
-
         APIService.createUser(user, this.state.id).then(() => {
             this.props.history.push('/user');
         });
     }
 
-    changeNameHandler = (event) => {
+    changeName = (event) => {
         this.setState({name: event.target.value});
     }
 
-    changePasswordHandler = (event) => {
+    changePassword = (event) => {
         this.setState({password: event.target.value});
     }
 
     changeEmailHandler = (event) => {
         this.setState({email: event.target.value});
     }
-
-    cancel() {
-        this.props.history.push('/user');
-    }
-
 
     render() {
         return (
@@ -68,7 +62,7 @@ class User extends Component {
                             name="user"
                             className="form-control"
                             value={this.state.name}
-                            onChange={this.changeNameHandler}/>
+                            onChange={this.changeName}/>
                     </div>
                     <div className="form-group">
                         <label> Password: </label>
@@ -77,7 +71,7 @@ class User extends Component {
                             name="password"
                             className="form-control"
                             value={this.state.password}
-                            onChange={this.changePasswordHandler}/>
+                            onChange={this.changePassword}/>
                     </div>
                     <div className="form-group">
                         <label> Email: </label>
@@ -85,10 +79,7 @@ class User extends Component {
                                value={this.state.email} onChange={this.changeEmailHandler}/>
                     </div>
 
-                    <button className="btn btn-success" onClick={this.saveOrUpdateUser}>Save</button>
-                    <button className="btn btn-danger" onClick={this.cancel.bind(this)}
-                            style={{marginLeft: "10px"}}>Cancel
-                    </button>
+                    <button className="btn btn-success" onClick={this.saveUser}>Save</button>
                 </form>
             </div>
         );

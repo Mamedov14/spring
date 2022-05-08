@@ -1,6 +1,10 @@
+import axios from 'axios';
+
+
 const STUDENTS_REST_API = 'http://localhost:8080/api';
 const FIND_ALL_STUDENTS = 'http://localhost:8080/students'
 const CREATE_USER = 'http://localhost:8080/user'
+const USER = 'http://localhost:8080/user'
 
 class APIService {
     // test response
@@ -12,16 +16,25 @@ class APIService {
         return await fetch(FIND_ALL_STUDENTS).then((res => res.json()));
     }
 
-
-    async createUser(user, id) {
-        return await fetch(CREATE_USER, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify({user})
-        })
+    createUser(user) {
+        return axios.post(CREATE_USER, user);
     }
+
+    getUserById(userId) {
+        return axios.get(USER + '/' + userId);
+    }
+
+    /*
+        async createUser(id) {
+            return await fetch(CREATE_USER, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify()
+            })
+        }
+    */
 
 }
 
