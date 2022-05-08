@@ -15,16 +15,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public boolean createUser(User user) {
-        String userEmail = user.getEmail();
-        if (userRepository.findByEmail(userEmail) != null) {
-            return false;
-        }
-        user.getRoles().add(Role.ROLE_STUDENT);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        log.info("Saving new User with email: {}", userEmail);
-        userRepository.save(user);
-
-        return true;
+    public User save(User user) {
+        return userRepository.save(user);
     }
 }
