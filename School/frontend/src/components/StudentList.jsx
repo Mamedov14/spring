@@ -51,7 +51,6 @@ class StudentList extends Component {
                         </tr>)}
                         </tbody>
                     </table>
-
                 </div>
             </div>
         );

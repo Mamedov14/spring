@@ -1,9 +1,11 @@
 import StudentList from "./components/StudentList";
+import GetHomework from "./components/GetHomework";
 
 function App() {
     return (
         <div className="App">
-          <StudentList />
+            <StudentList/>
+            <GetHomework/>
         </div>
     );
 }
