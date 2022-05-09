@@ -1,3 +1,4 @@
+/*
 package com.example.school.service.user;
 
 import com.example.school.entity.User;
@@ -22,3 +23,4 @@ public class UserService {
         return userRepository.findById(id).orElse(null);
     }
 }
+*/

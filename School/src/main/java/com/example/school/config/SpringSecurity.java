@@ -1,3 +1,4 @@
+/*
 package com.example.school.config;
 
 import com.example.school.service.user.CustomUserDetailsService;
@@ -43,3 +44,4 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder(8);
     }
 }
+*/

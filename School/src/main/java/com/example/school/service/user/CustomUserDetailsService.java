@@ -1,3 +1,4 @@
+/*
 package com.example.school.service.user;
 
 import com.example.school.repository.UserRepository;
@@ -18,3 +19,4 @@ public class CustomUserDetailsService implements UserDetailsService {
         return userRepository.findByEmail(username);
     }
 }
+*/

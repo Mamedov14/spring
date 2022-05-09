@@ -1,3 +1,4 @@
+/*
 package com.example.school.controller;
 
 
@@ -23,4 +24,4 @@ public class UserController {
         User user = userService.findById(id);
         return ResponseEntity.ok(user);
     }
-}
+}*/

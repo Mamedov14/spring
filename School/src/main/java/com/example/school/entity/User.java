@@ -1,3 +1,4 @@
+/*
 package com.example.school.entity;
 
 import com.example.school.entity.enums.Role;
@@ -70,3 +71,4 @@ public class User implements UserDetails {
         return true;
     }
 }
+*/
