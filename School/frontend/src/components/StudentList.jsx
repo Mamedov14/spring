@@ -41,14 +41,15 @@ class StudentList extends Component {
                         </tr>
                         </thead>
                         <tbody>
-                        {this.state.students.map(student => <tr key={student.id}>
-                            <td> {student.lastName} </td>
-                            <td> {student.firstName}</td>
-                            <td> {student.patronymic}</td>
-                            <td> {student.address}</td>
-                            <td> {student.className}</td>
-                            <td> {student.phoneNumber}</td>
-                        </tr>)}
+                        {this.state.students.map(student =>
+                            <tr key={student.id}>
+                                <td> {student.lastName} </td>
+                                <td> {student.firstName}</td>
+                                <td> {student.patronymic}</td>
+                                <td> {student.address}</td>
+                                <td> {student.className}</td>
+                                <td> {student.phoneNumber}</td>
+                            </tr>)}
                         </tbody>
                     </table>
                 </div>

@@ -49,13 +49,14 @@ class GetHomework extends Component {
                         </thead>
                         <tbody>
                         {
-                            this.state.homeworks.map(homework => <tr key={homework.id}>
-                                <td> {homework.lastName} </td>
-                                <td> {homework.firstName}</td>
-                                <td> {homework.subjectName}</td>
-                                <td> {homework.clazz}</td>
-                                <td> {homework.homework}</td>
-                            </tr>)
+                            this.state.homeworks.map(homework =>
+                                <tr key={homework.id}>
+                                    <td> {homework.lastName} </td>
+                                    <td> {homework.firstName}</td>
+                                    <td> {homework.subjectName}</td>
+                                    <td> {homework.clazz}</td>
+                                    <td> {homework.homework}</td>
+                                </tr>)
                         }
                         </tbody>
                     </table>
