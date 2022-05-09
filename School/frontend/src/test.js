@@ -1,10 +1,13 @@
 const axios = require('axios').default
 
 axios
-    .get('https://fortniteapi.io/v2/items/list?lang=en', {
+    .get('https://fortniteapi.io/v2/items/list', {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'afcb772b-9087b6e2-c9d08303-587c2bcd',
+        },
+        params: {
+            lang: 'ru'
         },
     })
     .then(response => {
